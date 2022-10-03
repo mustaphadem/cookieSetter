@@ -23,6 +23,7 @@ function setCookies(name, val, tab) {
       console.log(`${name} is not found.`);
       chrome.cookies.set({ name: name, url: tab.url, value: val }, (c) => {
         console.log(`New cookie ${c.name} has been set as ${c.value}`);
+        chrome.tabs.reload();
       });
     };
 
