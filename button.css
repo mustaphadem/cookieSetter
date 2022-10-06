@@ -1,4 +1,4 @@
-button {
+button{
     height: 30px;
     width: 25%;
     margin: 10px;
@@ -7,6 +7,14 @@ button {
     color: beige;
     border-radius: 10px;
   }
+
+select {
+    height: 30px;
+    width: 75%;
+    margin: 10px;
+    border: solid steelblue;
+    border-radius: 10px;
+}  
   
 button.current {
 box-shadow: 0 0 0 2px white,

@@ -13,7 +13,8 @@
     "storage",
     "activeTab",
     "scripting",
-    "cookies"
+    "cookies",
+    "webNavigation"
   ],
   "action": {
     "default_popup": "popup.html",
