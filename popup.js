@@ -48,8 +48,11 @@ function isEmpty(values){
 }
 
 function setCookies(name, val, tab) {
+  chrome.cookies.remove({name:name, url: tab.url}, (d) => {
+    console.log(`Existing cookie ${d.name} has been removed.`);
+  });
   chrome.cookies.set({ name: name, url: tab.url, value: val }, (c) => {
-    console.log(`New cookie ${c.name} has been set as ${c.value}`);
+    console.log(`New cookie ${c.name} has been set as ${c.value}.`);
   });
   chrome.tabs.reload();
 };
@@ -62,7 +65,7 @@ async function constructSavedItems() {
         let option = document.createElement("option");
         option.dataset.name = Object.keys(cookiePair)[0];
         option.dataset.value = Object.values(cookiePair)[0];
-        option.label = Object.keys(cookiePair)[0] + " - " + Object.values(cookiePair)[0];
+        option.label = Object.keys(cookiePair)[0] + " : " + Object.values(cookiePair)[0];
         savedOptions.appendChild(option);
       }
     };
