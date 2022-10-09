@@ -26,7 +26,7 @@ applyChanges.addEventListener("click", async () => {
   let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
   let name = cookieName.value;
   let value = cookieValue.value;
-  if(shouldSave && !isEmpty([name, value])){
+  if(shouldSave && !isEmpty([name, value]) && !isDuplicate(name, value, savedItems)){
     savedItems.push({[name]:value});
     chrome.storage.sync.set({"savedCookiePairs": savedItems}, () => {
       console.log(`Cookie name-value has been saved in storage as ${name} : ${value}`);
@@ -46,6 +46,19 @@ function isEmpty(values){
   }
   return flag;
 }
+
+function isDuplicate(name, value, items){
+  let flag = false;
+  for (let i = 0; i < items.length; i++) {
+    let hasKey = items[i].hasOwnProperty(name);
+    let hasValue = items[i][name] == value;
+    if(hasKey && hasValue){
+        flag = true;
+        break;
+      };  
+};
+return flag;
+};
 
 function setCookies(name, val, tab) {
   chrome.cookies.remove({name:name, url: tab.url}, (d) => {
