@@ -2,6 +2,7 @@
 <html>
 
 <head>
+  <meta charset="UTF-8">
   <link rel="stylesheet" href="button.css">
 </head>
 
@@ -9,19 +10,24 @@
   <div id="wrapper">
     <h2 id="title">Set Cookies</h2>
     <div id="cookies-container">
-      <form>
+      <form id="cookie-form">
         <div>
           <label for="cookie-name">Name</label>
-          <input id="cookie-name" type="text" autocomplete="on">
+          <input id="cookie-name" type="text" autocomplete="on" required>
         </div>
         <div>
           <label for="cookie-value">Value</label>
-          <input id="cookie-value" type="text" autocomplete="on">
+          <input id="cookie-value" type="text" autocomplete="on" required>
+        </div>
+        <div>
+          <label for="cookie-description">Description</label>
+          <input id="cookie-description" type="text" autocomplete="on">
         </div>
         <div>
           <input id="cookie-save" type="checkbox" checked>
-          <label for="cookie-save">Save On Apply?</label>
+          <label for="cookie-save">Save On Apply</label>
         </div>
+        <button id="reset" disabled>Reset</button>
         <h4>OR</h4>
         <h3>Select a saved cookie name-value pair to apply</h3>
         <div>
@@ -29,9 +35,9 @@
             <option disabled selected>Select one</option>
           </select>
         </div>
-      </form>
     </div>
-    <button id="applyChanges">Apply</button>
+    <button id="applyChanges" type="submit">Apply</button>
+    </form>
     <script src="popup.js"></script>
   </div>
 </body>

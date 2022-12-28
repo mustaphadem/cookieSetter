@@ -8,6 +8,21 @@ button{
     border-radius: 10px;
   }
 
+#reset {
+    background-color: white;
+    color: steelblue;
+    border: solid 1px steelblue;
+  }
+
+#reset:disabled{
+    color: gray;
+    border: solid 1px gray;
+}  
+
+input {
+    display: block;
+    margin: 5px auto;
+}
 select {
     height: 30px;
     width: 75%;
@@ -33,6 +48,10 @@ box-shadow: 0 0 0 2px white,
 
 #cookies-container{
     text-align: center;
+}
+
+#cookie-save {
+    display: inline-block;
 }
 
 
