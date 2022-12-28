@@ -79,7 +79,6 @@ form.addEventListener("submit", async (e) => {
 });
 
 inputFields.forEach(el => el.addEventListener("input", async (e) => {
-  //e.preventDefault();
   if(cookieName.value.trim().length > 0 || cookieValue.value.trim().length > 0 || cookieDescription.value.trim().length > 0){
     reset.disabled = false;
   } else {
