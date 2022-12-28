@@ -12,7 +12,6 @@ let savedItems = [];
 save.addEventListener("click", () => {
   shouldSave = save.checked;
   if(shouldSave){
-    console.log(shouldSave);
     cookieDescription.disabled = false;
   } else {
     cookieDescription.disabled = true;
