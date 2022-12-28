@@ -1,2 +1,2 @@
 # cookieSetter
-A chrome extension that allows you to quickly set a cookie, ability to save & retrieve applied cookies.
+A chrome extension that allows you to quickly set cookies with the ability to save, retrieve and apply them easily.
