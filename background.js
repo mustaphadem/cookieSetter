@@ -1,14 +1,17 @@
-chrome.tabs.onActivated.addListener((info) => {
-  chrome.tabs.get(info.tabId, function (tab) {
-    if(tab.url){
-      chrome.cookies.get({name:"gdid", url:tab.url}, (cookie) => {
-        if(cookie != null){
-          console.log(`gdid is set as ${cookie.value}`);
-        } else {
-          console.log("gdid is not set.");
-        } 
-    });
+chrome.tabs.onActivated.addListener(retrieveSavedItems());
+
+async function retrieveSavedItems() {
+  await chrome.storage.sync.get("savedCookiePairs", (data) => {
+    if(!(Object.values(data)[0]==undefined)){
+      let savedItems = Object.values(data)[0];
+      console.log("Saved entries are:");
+      savedItems.forEach(element => {
+        console.log(`Name: ${Object.keys(element)[0]}, Value: ${Object.values(element)[0][0]}, Description: ${Object.values(element)[0][1]}`);
+      });   
+    }else {
+      console.log("No saved items are found.")
     }
-  });
-});
+   });
+};
+
 
